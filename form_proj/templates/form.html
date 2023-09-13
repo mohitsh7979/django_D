@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block form %}
   <div class="container m-5">
-    <form action="/data/" method="post">
+    <form action="/data/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -14,6 +14,10 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Descripation</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripation"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Image</label>
+        <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="user_image" />
       </div>
 
       <button class="btn btn-primary">Submit</button>

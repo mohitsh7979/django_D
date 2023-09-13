@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block data %}
+  <div class="container m-5 border border-dark">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Descripation</th>
+          <th scope="col">Date</th>
+          <th scope="col">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.descripation}}</td>
+            <td>{{i.date}}</td>
+            <td><img src="/media/{{i.image}}" alt="" width="100%" height="100px" ></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
+

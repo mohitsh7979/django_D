@@ -7,4 +7,6 @@ from .models import details
 @admin.register(details)
 
 class DetailAdmin(admin.ModelAdmin):
-    list_display = ['id','name','email','descripation','date']
+    list_display = ['id','name','email','descripation','date','image']
+
+

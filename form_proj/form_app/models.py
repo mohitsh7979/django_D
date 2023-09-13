@@ -8,3 +8,7 @@ class details(models.Model):
     email = models.EmailField()
     descripation = models.CharField(max_length=300)
     date = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='media')
+
+
+
