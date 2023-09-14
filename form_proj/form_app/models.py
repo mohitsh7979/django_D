@@ -12,3 +12,13 @@ class details(models.Model):
 
 
 
+class student_details(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
+    mobile_no = models.CharField(max_length=10)
+    roll_no = models.IntegerField()
+    image = models.ImageField()
+
+
+
+
