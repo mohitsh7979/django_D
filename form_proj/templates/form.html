@@ -3,6 +3,7 @@
   <div class="container m-5">
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        
 
         {% for i in a %}
         
@@ -11,7 +12,9 @@
           {{i.label_tag}} {{i}} <br> <br>
           
         </div>
-        {% endfor %}
+        {% endfor %} 
+ 
+         
 
 
       <button class="btn btn-primary">Submit</button>

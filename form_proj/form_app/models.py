@@ -10,6 +10,13 @@ class details(models.Model):
     date = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='media')
 
+CITY_CHOICE = (
+
+    ('jaipur','Jaipur'),
+    ('udaipur','Udaipur'),
+    ('kota','Kota'),
+    ('jodhpur','Jodhpur')
+)
 
 
 class student_details(models.Model):
@@ -17,7 +24,12 @@ class student_details(models.Model):
     email = models.EmailField()
     mobile_no = models.CharField(max_length=10)
     roll_no = models.IntegerField()
+    city = models.CharField(choices=CITY_CHOICE,max_length=50,null=True,blank=True)
     image = models.ImageField()
+
+
+    def __str__(self):
+        return self.name
 
 
 

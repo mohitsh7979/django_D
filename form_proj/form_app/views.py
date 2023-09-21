@@ -10,20 +10,15 @@ def form_output(request):
     if request.method == "POST":
 
         a = Student_form(request.POST,request.FILES)
+        print('a>>>>>>>>>',a)
 
         if a.is_valid():
-
-            name = a.cleaned_data['name']
-            email = a.cleaned_data['email']
-            mobile_no = a.cleaned_data['mobile_no']
-            roll_no = a.cleaned_data['roll_no']
-            image = a.cleaned_data['image']
-
-            student_details(name=name,email=email,mobile_no=mobile_no,roll_no=roll_no,image=image).save()
+            a.save()
 
             return HttpResponse('Data Saved !!')
 
-    a = Student_form()
+    a = Student_form(label_suffix=':')
+    # a.order_fields(field_order=['email','name','image','roll_no'])
     context = {
 
         'a':a
