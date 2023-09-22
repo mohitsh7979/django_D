@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block form %}
-  <div class="container m-5">
+<div class="container m-5">
+    <h3 class= "mb-5">Welcome {{request.user}}</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         

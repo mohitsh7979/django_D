@@ -1,5 +1,8 @@
-from django.shortcuts import render,HttpResponse
-from .forms import resister_form
+from django.shortcuts import render,HttpResponse,redirect
+from .forms import resister_form,login_form
+from django.contrib.auth import authenticate,login,logout
+
+
 
 
 
@@ -22,3 +25,26 @@ def create_account(request):
         'data':data
     }
     return render(request,'auth_app/register.html',context)
+
+
+
+def login_account(request):
+    if request.method == "POST":
+        data = login_form(data=request.POST)
+        if data.is_valid():
+            uname = data.cleaned_data['username']
+            passw = data.cleaned_data['password']
+            print(uname,passw)
+            user = authenticate(username=uname,password=passw)
+            print(user,'>>>>>>user')
+
+            if user is not None:
+                login(request,user)
+                return redirect('/output/')
+
+        
+    data = login_form()
+    context = {
+        'data':data
+    }
+    return render(request,'auth_app/login.html',context)

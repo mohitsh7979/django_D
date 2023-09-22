@@ -6,6 +6,12 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
+
+      a{
+
+        text-decoration: none;
+        color: black;
+      }
   
     </style>
   </head>
@@ -32,7 +38,7 @@
     
             <div class="text-end">
               <button type="button" class="btn btn-outline-light me-2">Login</button>
-              <button type="button" class="btn btn-warning">Sign-up</button>
+              <button type="button" class="btn btn-warning"><a href="/auth/create_account/">Sign-up</a></button>
             </div>
           </div>
         </div>
@@ -40,6 +46,7 @@
 
       {% block form %}{% endblock form %}
       {% block data %}{% endblock data %}
+      {% block create_account %}{% endblock create_account %}
 
       <div class="container">
         <footer class="py-3 my-4">
