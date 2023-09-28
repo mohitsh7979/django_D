@@ -18,8 +18,8 @@ def create_account(request):
             data.save()
             return HttpResponse('Account Successfully created !!!')
             
-
-    data = resister_form()
+    else:
+     data = resister_form()
     context = {
 
         'data':data
@@ -42,8 +42,8 @@ def login_account(request):
                 login(request,user)
                 return redirect('/output/')
 
-        
-    data = login_form()
+    else:    
+     data = login_form()
     context = {
         'data':data
     }
