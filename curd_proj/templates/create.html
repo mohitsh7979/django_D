@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container{
+
+            height: 100vh;
+            display: flex;
+        }
+
+        .form{
+
+            width: 49%;
+            border: 2px solid black;
+        }
+
+        .table{
+
+            width: 48%;
+            border: 2px solid black;
+            background-color: powderblue;
+        }
+
+        table{
+
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <h1>Fill Your Form</h1>
+
+        {% if messages %}
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        {% endif %}
+
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for i in a %}
+            {{ i.label_tag }} {{ i }} <br /> <br />
+          {% endfor %}
+          <input type="submit" />
+        </form>
+      </div>
+
+      <div class="table" >
+         <table border = "2">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Date</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            
+            {% for i in data %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.date}}</td>
+                <td><a href="/update/{{i.id}}/">Update</a></td>
+                <td><a href="/delete/{{i.id}}/">Delete</a></td>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+    </div>
+  </body>
+</html>
